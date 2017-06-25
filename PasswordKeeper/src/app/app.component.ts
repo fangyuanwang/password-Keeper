@@ -35,7 +35,6 @@ export class AppComponent implements OnInit, OnDestroy{
     this.authStateSubscription.unsubscribe();
   }
   
-
   signOut(): void {
     this.afAuth.auth.signOut();
   }
