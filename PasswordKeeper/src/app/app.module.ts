@@ -37,6 +37,7 @@ import {
 } from '@angular/material';
 import { SigninComponent } from './+signin/signin.component';
 import { MainComponent } from './+main/main.component';
+import { PasswordDialogComponent } from './password-dialog/password-dialog.component';
 
 
 export const MaterialModules = [
@@ -70,7 +71,11 @@ export const MaterialModules = [
   declarations: [
     AppComponent,
     SigninComponent,
-    MainComponent
+    MainComponent,
+    PasswordDialogComponent,
+  ],
+  entryComponents: [
+    PasswordDialogComponent,
   ],
   imports: [
     BrowserModule,
