@@ -12,5 +12,6 @@ export const environment = {
     projectId: "wangf-password-keeper-1a16d",
     storageBucket: "wangf-password-keeper-1a16d.appspot.com",
     messagingSenderId: "848853833854"
-  }
+  },
+  registryToken: "6c1397a8-1303-4f12-b135-1f3b00835193",
 };
