@@ -2,7 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Password } from "app/models/password.model";
 import { trigger, state, style, transition, animate } from "@angular/animations";
 import * as firebase from 'firebase/app'; 
-import { MdSnackBar } from "@angular/material";
+import { MdSnackBar, MdDialog, MdDialogConfig } from "@angular/material";
+import { PasswordDialogComponent } from "app/password-dialog/password-dialog.component";
 
 @Component({
   selector: 'app-password-display-card',
@@ -23,7 +24,8 @@ export class PasswordDisplayCardComponent implements OnInit {
   @Input() firebasePath: string;
   isExpanded = false;
 
-  constructor(private snackBar: MdSnackBar) { }
+  constructor(private snackBar: MdSnackBar,
+        private dialog: MdDialog) { }
 
   get showPasswordState(): string {
     return this.isExpanded? 'expanded' : 'collapsed';
@@ -40,6 +42,11 @@ export class PasswordDisplayCardComponent implements OnInit {
   }
 
   edit(): void {
+    const dialogConfig = new MdDialogConfig();
+    dialogConfig.data = {
+       firebasePath: this.firebasePath,
+      password: this.password};
+    this.dialog.open(PasswordDialogComponent, dialogConfig);
   }
 
 }

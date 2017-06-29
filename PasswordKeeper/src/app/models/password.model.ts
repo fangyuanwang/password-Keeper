@@ -11,12 +11,12 @@ export class FirebaseFlatSnapshot {
 export class Password extends FirebaseFlatSnapshot{
     public service: string;
     public username: string;
-    public passwrod: string;
+    public password: string;
 
     constructor(obj?: any) {
         super(obj);
         this.service = obj && obj.service || "";
         this.username = obj && obj.username || "";
-        this.passwrod = obj && obj.passwrod || "";
+        this.password = obj && obj.password || "";
     }
 }

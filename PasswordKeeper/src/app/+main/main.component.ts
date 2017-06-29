@@ -18,7 +18,7 @@ export class MainComponent implements OnInit, OnDestroy{
 
   private authStateSubscription: Subscription;
   firebasePath: string;
-  passwrodStream: FirebaseListObservable<Password[]>;
+  passwordStream: FirebaseListObservable<Password[]>;
 
   constructor(private afAuth: AngularFireAuth, 
       private router: Router, 
@@ -42,13 +42,11 @@ export class MainComponent implements OnInit, OnDestroy{
     this.authStateSubscription = this.afAuth.authState.subscribe( (user: firebase.User) => { 
       if (user) {
         // Signin just happen
-        console.log("User is signed in as: ", user.uid);
 
         this.firebasePath = `/users/${user.uid}`;
-        this.passwrodStream = this.db.list(this.firebasePath);
+        this.passwordStream = this.db.list(this.firebasePath);
       } else {
         //Signout just happen
-        console.log("User is not signed in");
         this.router.navigate(["/signin"]);
       }
      });
@@ -65,7 +63,6 @@ export class MainComponent implements OnInit, OnDestroy{
   showPasswordDialog(): void {
     const dialogConfig = new MdDialogConfig();
     dialogConfig.data = {firebasePath: this.firebasePath};
-
     this.dialog.open(PasswordDialogComponent, dialogConfig);
   }
 }
