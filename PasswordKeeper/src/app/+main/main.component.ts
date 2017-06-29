@@ -17,7 +17,7 @@ import { PasswordDialogComponent } from "app/password-dialog/password-dialog.com
 export class MainComponent implements OnInit, OnDestroy{
 
   private authStateSubscription: Subscription;
-  private firebasePath: string;
+  firebasePath: string;
   passwrodStream: FirebaseListObservable<Password[]>;
 
   constructor(private afAuth: AngularFireAuth, 
